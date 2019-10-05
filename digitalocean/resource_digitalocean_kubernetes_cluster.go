@@ -72,7 +72,6 @@ func resourceDigitalOceanKubernetesCluster() *schema.Resource {
 				Type:     schema.TypeList,
 				Required: true,
 				MinItems: 1,
-				MaxItems: 1,
 				Elem: &schema.Resource{
 					Schema: nodePoolSchema(),
 				},
