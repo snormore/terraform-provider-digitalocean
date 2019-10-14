@@ -47,6 +47,11 @@ func resourceDigitalOceanKubernetesCluster() *schema.Resource {
 				ValidateFunc: validation.NoZeroValues,
 			},
 
+			"actual_version": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+
 			"cluster_subnet": {
 				Type:     schema.TypeString,
 				Computed: true,
@@ -204,7 +209,7 @@ func resourceDigitalOceanKubernetesClusterRead(d *schema.ResourceData, meta inte
 func digitaloceanKubernetesClusterRead(client *godo.Client, cluster *godo.KubernetesCluster, d *schema.ResourceData) error {
 	d.Set("name", cluster.Name)
 	d.Set("region", cluster.RegionSlug)
-	d.Set("version", cluster.VersionSlug)
+	d.Set("actual_version", cluster.VersionSlug)
 	d.Set("cluster_subnet", cluster.ClusterSubnet)
 	d.Set("service_subnet", cluster.ServiceSubnet)
 	d.Set("ipv4_address", cluster.IPv4)

@@ -29,6 +29,11 @@ func dataSourceDigitalOceanKubernetesCluster() *schema.Resource {
 				Computed: true,
 			},
 
+			"actual_version": {
+				Type:     schema.TypeString,
+				Computed: true,
+			},
+
 			"cluster_subnet": {
 				Type:     schema.TypeString,
 				Computed: true,
